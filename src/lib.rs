@@ -2,4 +2,4 @@
 mod test;
 
 pub mod client;
-pub mod server;
+pub mod util;

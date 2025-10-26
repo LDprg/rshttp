@@ -5,7 +5,6 @@ edition = "2024"
 
 [dependencies]
 
-
 [[example]]
 name = "simple_req"
 path = "examples/simple_req.rs"
