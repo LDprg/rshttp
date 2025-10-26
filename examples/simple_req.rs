@@ -1,5 +1,5 @@
 use rshttp::client::*;
 
 fn main() {
-    println!("{:?}", get("google.com:80"))
+    println!("{}", get("http://example.com").unwrap())
 }

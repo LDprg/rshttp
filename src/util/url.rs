@@ -89,10 +89,10 @@ impl<'a> From<&'a str> for Url<'a> {
             (None, Some(port)) => (
                 &value[..port],
                 value[port + 1..].parse().unwrap_or(scheme.default_port()),
-                "",
+                "/",
             ),
             (Some(path), None) => (&value[..path], scheme.default_port(), &value[path..]),
-            (None, None) => (value, scheme.default_port(), ""),
+            (None, None) => (value, scheme.default_port(), "/"),
         };
 
         let fragment_start = value.find('#');
@@ -135,7 +135,7 @@ mod test {
         assert!(url.scheme == Scheme::HTTP);
         assert!(url.host == "test.com");
         assert!(url.port == 80);
-        assert!(url.path.is_empty());
+        assert!(url.path == "/");
         assert!(url.query.is_empty());
         assert!(url.fragment.is_empty());
     }
@@ -151,7 +151,7 @@ mod test {
         assert!(url.scheme == Scheme::HTTPS);
         assert!(url.host == "test.com");
         assert!(url.port == 443);
-        assert!(url.path.is_empty());
+        assert!(url.path == "/");
         assert!(url.query.is_empty());
         assert!(url.fragment.is_empty());
     }
@@ -167,7 +167,7 @@ mod test {
         assert!(url.scheme == Scheme::HTTP);
         assert!(url.host == "test.com");
         assert!(url.port == 3000);
-        assert!(url.path.is_empty());
+        assert!(url.path == "/");
         assert!(url.query.is_empty());
         assert!(url.fragment.is_empty());
     }

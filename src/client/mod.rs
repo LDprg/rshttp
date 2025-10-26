@@ -10,6 +10,7 @@ pub fn get(url: &str) -> Result<String, ClientError> {
     let mut ip = format!("{}:{}", url.host, url.port).to_socket_addrs()?;
 
     if let Some(ip) = ip.next() {
+        println!("{:#?}", url);
         println!("{}", ip);
         let mut socket = TcpStream::connect(ip)?;
 
