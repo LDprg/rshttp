@@ -1,12 +1,12 @@
 #[derive(Debug)]
 #[allow(dead_code)]
 pub struct Url<'a> {
-    scheme: Scheme,
-    host: &'a str,
-    port: u16,
-    path: &'a str,
-    query: Query<'a>,
-    fragment: &'a str,
+    pub scheme: Scheme,
+    pub host: &'a str,
+    pub port: u16,
+    pub path: &'a str,
+    pub query: Query<'a>,
+    pub fragment: &'a str,
 }
 
 #[derive(Debug, PartialEq)]
