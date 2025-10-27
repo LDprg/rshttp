@@ -66,7 +66,7 @@ impl<'a> From<&'a str> for Url<'a> {
         } else if let Some(res) = value.strip_prefix("https://") {
             (res, Scheme::HTTPS)
         } else {
-            (value, Scheme::HTTP)
+            (value, Scheme::HTTPS)
         };
 
         let path_start = value.find('/');
